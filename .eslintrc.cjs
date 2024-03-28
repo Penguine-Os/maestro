@@ -1,8 +1,7 @@
 module.exports = {
   root: true,
-  extends: [
-    '@nuxt/eslint-config'
-  ],
+  extends: ['@nuxt/eslint-config', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   rules: {
     // Global
     semi: ['error', 'never'],
@@ -18,6 +17,7 @@ module.exports = {
         }
       }
     ],
-    'vue/no-v-html': 0
+    'vue/no-v-html': 0,
+    prettier: 'error'
   }
 }

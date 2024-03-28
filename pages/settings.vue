@@ -1,28 +1,43 @@
 <script setup lang="ts">
-const links = [[{
-    label: 'General',
-    icon: 'i-heroicons-user-circle',
-    to: '/settings',
-    exact: true
-  }, {
-    label: 'Members',
-    icon: 'i-heroicons-user-group',
-    to: '/settings/members'
-  }, {
-    label: 'Notifications',
-    icon: 'i-heroicons-bell',
-    to: '/settings/notifications'
-  }], [{
-    label: 'Documentation',
-    icon: 'i-heroicons-book-open',
-    to: 'https://ui.nuxt.com/pro',
-    target: '_blank'
-  }, {
-    label: 'Buy now',
-    icon: 'i-heroicons-credit-card',
-    to: 'https://ui.nuxt.com/pro/purchase',
-    target: '_blank'
-  }]]
+const links = [
+  [
+    {
+      label: 'General',
+      icon: 'i-heroicons-user-circle',
+      to: '/settings',
+      exact: true
+    },
+    {
+      label: 'Members',
+      icon: 'i-heroicons-user-group',
+      to: '/settings/members'
+    },
+    {
+      label: 'Notifications',
+      icon: 'i-heroicons-bell',
+      to: '/settings/notifications'
+    }
+  ],
+  [
+    {
+      label: 'Documentation',
+      icon: 'i-heroicons-book-open',
+      to: 'https://ui.nuxt.com/pro',
+      target: '_blank'
+    },
+    {
+      label: 'Buy now',
+      icon: 'i-heroicons-credit-card',
+      to: 'https://ui.nuxt.com/pro/purchase',
+      target: '_blank'
+    }
+  ]
+]
+function toggle() {
+  isOpen.value = !isOpen.value
+}
+
+const isOpen = ref(false)
 </script>
 
 <template>
@@ -33,7 +48,8 @@ const links = [[{
       <UDashboardToolbar class="py-0 px-1.5 overflow-x-auto">
         <UHorizontalNavigation :links="links" />
       </UDashboardToolbar>
-
+      <UDashboardSlideover v-model="isOpen" title="Notifications" />
+      <button @click="toggle">expand</button>
       <NuxtPage />
     </UDashboardPanel>
   </UDashboardPage>
