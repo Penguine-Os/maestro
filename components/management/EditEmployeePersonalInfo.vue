@@ -18,6 +18,7 @@ const workStatus = ['Full-time', 'Part-time', 'Temporary', 'Internship']
           description="Information regaring employee"
           icon="i-heroicons-user-circle"
         >
+          {{ state }}
           <UFormGroup
             name="firstName"
             label="First Name"
@@ -37,7 +38,7 @@ const workStatus = ['Full-time', 'Part-time', 'Temporary', 'Internship']
             :ui="{ container: '' }"
           >
             <UInput
-              v-model="state.name"
+              v-model="state.lastName"
               autocomplete="off"
               icon="i-heroicons-user"
               size="md"
@@ -211,7 +212,7 @@ const workStatus = ['Full-time', 'Part-time', 'Temporary', 'Internship']
             :ui="{ container: '' }"
           >
             <UInput
-              v-model="state.contractStart.toISOString().split('T')[0]"
+              v-model="state.contractStart"
               type="date"
               autocomplete="off"
               icon="i-heroicons-user"
@@ -226,7 +227,7 @@ const workStatus = ['Full-time', 'Part-time', 'Temporary', 'Internship']
             :ui="{ container: '' }"
           >
             <UInput
-              v-model="state.contractEnd.toISOString().split('T')[0]"
+              v-model="state.contractEnd"
               type="date"
               autocomplete="off"
               icon="i-heroicons-user"
