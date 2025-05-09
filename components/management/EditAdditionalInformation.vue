@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useEmployeeEditor } from '~/components/management/hooks/useEmployeeEditor'
 
-const { state, onSubmit } = useEmployeeEditor()
+const { state } = useEmployeeEditor()
 </script>
 
 <template>
@@ -13,6 +13,16 @@ const { state, onSubmit } = useEmployeeEditor()
           description="Information regaring employee"
           icon="i-heroicons-user-circle"
         >
+          <UFormGroup
+            name="bio"
+            label="Bio"
+            required
+            eager-validation
+            class="grid grid-cols-1 gap-2 mb-5 items-center"
+            :ui="{ container: '' }"
+          >
+            <UTextarea v-model="state.bio" />
+          </UFormGroup>
         </UDashboardCard>
       </div>
       <div class="col-span-2">

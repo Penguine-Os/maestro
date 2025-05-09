@@ -6,7 +6,11 @@ export const EmployeeSchema = z.object({
       required_error: "Can't be empty!"
     })
     .min(1),
-  name: z.string().min(1),
+  name: z
+    .string({
+      required_error: "Can't be empty!"
+    })
+    .min(1),
   // email: z.string().email(),
   // username: z.string(),
   // phone: z.string(),
